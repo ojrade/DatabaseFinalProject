@@ -18,6 +18,10 @@ if($errors){
     $actor = mysqli_real_escape_string($link, $actor);
     $director = mysqli_real_escape_string($link, $director);
     $sql = "SELECT m.title, m.year, m.crit_rev, m.aud_rev from movies m";
+    
+    if(!empty($_POST['exWatched'])){
+        $sql .= ", watched w";
+    }
     if(!empty($genre) || !empty($country) || !empty($actor) || !empty($director)){
         if(!empty($genre)){
             $sql .= ", genre g, is_genre gi";
@@ -28,10 +32,6 @@ if($errors){
         
         if(!empty($director)){
             $sql .= ", directors d, directs di";
-        }
-        
-        if(!empty($_POST['exWatched'])){
-            $sql .= ", watched w";
         }
         $sql .= " WHERE";
 
@@ -63,7 +63,12 @@ if($errors){
             }
             $sql .= " m.movie_id<>w.movie_id";
         }
+    }else{
+        if(!empty($_POST['exWatched'])){
+            $sql .= " WHERE m.movie_id<>w.movie_id";
+        }
     }
+    
     if(isset($_POST['order'])){
         $ord=$_POST['order'];
         $sql .= " ORDER BY $ord";
@@ -74,6 +79,7 @@ if($errors){
             $sql .= " $dir";
         }
     }
+    echo $sql;
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) < 1){
             echo '<div class="alert alert-danger">No valid movies</div>';
