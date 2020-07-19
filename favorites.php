@@ -4,7 +4,7 @@ include('connection.php');
 
 
 $userid = intval($_SESSION['user_id']);
-$sql = "SELECT m.title, f.rating FROM movies m, favorites f WHERE f.user_id='$userid' AND m.movie_id=f.movie_id";
+$sql = "call showfavorites('$userid')";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) < 1){
         echo '<div class="alert alert-danger">No valid movies</div>';

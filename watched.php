@@ -50,5 +50,7 @@ $result = mysqli_query($link, $sql);
 if(!$result){
     echo '<div class="alert alert-danger">There was an error inserting the users details in the database!</div>'; 
     exit;
+}else{
+    echo "Added '$title' to watched";
 }
 ?>

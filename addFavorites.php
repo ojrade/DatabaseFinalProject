@@ -53,15 +53,17 @@ if(mysqli_num_rows($result)<1){
 
 $sql = "SELECT * FROM favorites WHERE movie_id='$movieid' AND user_id='$userid'";
 $result = mysqli_query($link, $sql);
-if($result){
+if(mysqli_num_rows($result) !== 0){
     echo '<div class="alert alert-danger">Movie already in favorites!</div>';
     exit;
 }
 
-$sql = "INSERT INTO favorites (`user_id`, `movie_id`, `rating`) VALUES ('$userid', '$movieid', $rating)";
+$sql = "CALL addfavorites('$userid','$movieid','$rating')";
 $result = mysqli_query($link, $sql);
 if(!$result){
     echo '<div class="alert alert-danger">There was an error inserting the users details in the database!</div>'; 
     exit;
+} else{
+    echo "Added '$title' to favorites";
 }
 ?>

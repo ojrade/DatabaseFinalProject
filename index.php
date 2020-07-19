@@ -59,7 +59,7 @@ include('logout.php');
     </div>
     
 <!--Sign up form-->
-    <form method="post" id="SignUpForm">
+    <form method="post" id="SignUpForm" autocomplete="off">
         <div class="modal" id="SignUpModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -101,7 +101,7 @@ include('logout.php');
     </form>
 
     <!--Login form-->
-    <form method="post" id="LoginForm">
+    <form method="post" id="LoginForm" autocomplete="off">
         <div class="modal" id="LoginModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">

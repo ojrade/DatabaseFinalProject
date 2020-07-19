@@ -90,11 +90,12 @@ if($results){
 }
 
 //Insert user details and activation code in the users table
-echo $username;
-$sql = "INSERT INTO users (`username`, `email`, `password`) VALUES ('$username', '$email', '$password')";
+$sql = "CALL signup('$username','$email','$password')";
 $result = mysqli_query($link, $sql);
 if(!$result){
     echo '<div class="alert alert-danger">There was an error inserting the users details in the database!</div>'; 
     exit;
+}else{
+    echo "You have signed up. Press login to continue";
 }
         ?>

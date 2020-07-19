@@ -110,7 +110,7 @@ if(!isset($_SESSION['user_id'])){
           </div>
       </div>
       
-      <form method="post" id="SearchForm">
+      <form method="post" id="SearchForm" autocomplete="off">
         <div class="modal" id="SearchModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -166,7 +166,7 @@ if(!isset($_SESSION['user_id'])){
       </div>
     </form>
       
-    <form method="post" id="WatchedForm">
+    <form method="post" id="WatchedForm" autocomplete="off">
         <div class="modal" id="WatchedModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -195,7 +195,7 @@ if(!isset($_SESSION['user_id'])){
       </div>
     </form>
       
-    <form method="post" id="FavoriteForm">
+    <form method="post" id="FavoriteForm" autocomplete="off">
         <div class="modal" id="FavoriteModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
