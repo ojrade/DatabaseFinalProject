@@ -79,7 +79,6 @@ if($errors){
             $sql .= " $dir";
         }
     }
-    echo $sql;
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) < 1){
             echo '<div class="alert alert-danger">No valid movies</div>';
